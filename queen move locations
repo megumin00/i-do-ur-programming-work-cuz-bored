@@ -1,0 +1,21 @@
+oddinp = int(input('numvber '))
+middle = int(oddinp/2 - 0.5)
+top = []
+
+
+for i in range(oddinp):
+    space = middle - i - 1
+    reversecount = (i+1) - oddinp
+    if i == middle: #middle row
+        top.append('+'*oddinp)
+        
+    else: #vert + diag
+        
+        if i < middle: #top part
+            line = (' '*i + '+' + ' '*space + '+' + ' '*space + '+')
+            top.append(line)
+            
+    if i <= middle:
+        print(top[i])
+    else:
+        print(top[-reversecount])
