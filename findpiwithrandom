@@ -1,0 +1,54 @@
+import random
+import math
+
+
+class pygenerate:
+    
+    def __init__(self):
+        self.circleArea = 0
+        self.xList = []
+        self.yList = []
+        
+    def generate(self):
+        
+        self.x = random.randint(0,100)
+        self.y = random.randint(0,100)
+        
+    def combineCoords(self):
+        for i in range(self.userInput):
+            self.generate()
+            
+            self.xList.append(self.x)
+            self.yList.append(self.y)
+            
+    def sort(self):
+        for i in range(len(self.xList)): 
+            if self.xList[i] > 50:
+                self.xDistance = self.xList[i]
+            else:
+                self.xDistance = self.xList[i] + 50
+               
+            if self.yList[i] > 50:
+                self.yDistance = self.yList[i]
+            else:
+                self.yDistance = self.yList[i] + 50
+                
+            self.hypotnuse = self.xDistance**2 + self.yDistance**2
+            self.hypotnuse = math.sqrt(self.hypotnuse)
+            
+            if self.hypotnuse < 100:
+                self.circleArea += 1
+    
+    def calc(self):
+        self.pi = self.userInput/self.circleArea
+        
+    def run(self):
+        self.userInput = int(input('how many notations would you like '))
+        self.combineCoords()
+        self.sort()
+        self.calc()
+        print(self.pi)
+    
+if __name__ == '__main__':
+    pygenerate().run()
+    
